@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SettingsActivity"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/dark">
+
+        <TextView
+            android:id="@+id/txt_settingsProfilName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Diego"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/settingsGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4"/>
+
+        <TextView
+            android:id="@+id/txt_mainSport"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Sport principal : "
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/txt_settingsProfilName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/settingsGuideline"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/mainSport"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toBottomOf="@id/txt_settingsProfilName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/settingsGuideline"
+            android:background="@color/white"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/txt_color"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Couleur : "
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/txt_mainSport"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/settingsGuideline"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edit_color"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:text="#000000"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/mainSport"
+            app:layout_constraintRight_toLeftOf="@id/colorView"
+            app:layout_constraintLeft_toRightOf="@id/settingsGuideline"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/colorView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@android:color/holo_blue_dark"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainSport"
+            app:layout_constraintLeft_toRightOf="@id/edit_color"
+            app:layout_constraintBottom_toTopOf="@id/edit_objectifCyclisme"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/txt_objectifCyclisme"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Objectif Cyclisme : "
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/txt_color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/settingsGuideline"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edit_objectifCyclisme"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_color"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/settingsGuideline"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/txt_objectifRunning"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Objectif Running : "
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/txt_objectifCyclisme"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/settingsGuideline"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edit_objectifRunning"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edit_objectifCyclisme"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/settingsGuideline"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

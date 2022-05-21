@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_segments"
+        android:title="Segments"
+        android:icon="@android:drawable/ic_menu_view"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_map"
+        android:title="Map"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_calendrier"
+        android:title="Calendrier"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_profil1"
+        android:title="Diego"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_profil2"
+        android:title="Andy"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_profil3"
+        android:title="Paul"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_profil4"
+        android:title="Simon"
+        app:showAsAction="never"/>
+
+</menu>

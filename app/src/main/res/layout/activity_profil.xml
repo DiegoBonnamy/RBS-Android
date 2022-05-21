@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfilActivity"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/dark">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_profilImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="12dp"
+            app:cardCornerRadius="50dp"
+            android:layout_centerHorizontal="true"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/bloc_objectif"
+            app:layout_constraintBottom_toTopOf="@id/switch_sport"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="4dp">
+            <ImageView
+                android:id="@+id/img_profil"
+                android:layout_height="100dp"
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+            </ImageView>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bloc_objectif"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:padding="16dp"
+            android:background="@drawable/layout_border"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/cardview_profilImg"
+            app:layout_constraintBottom_toTopOf="@id/switch_sport">
+
+            <TextView
+                android:id="@+id/txt_dureeTotale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 h"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/bloc_objectif"
+                app:layout_constraintLeft_toLeftOf="@id/bloc_objectif"
+                app:layout_constraintRight_toLeftOf="@id/txt_distanceTotale"
+                app:layout_constraintBottom_toTopOf="@id/progressBar_cyclisme"/>
+
+            <TextView
+                android:id="@+id/txt_distanceTotale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000 km"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/bloc_objectif"
+                app:layout_constraintLeft_toRightOf="@id/txt_dureeTotale"
+                app:layout_constraintRight_toLeftOf="@id/txt_deniveleTotal"
+                app:layout_constraintBottom_toTopOf="@id/progressBar_cyclisme"/>
+
+            <TextView
+                android:id="@+id/txt_deniveleTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0000 m"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/bloc_objectif"
+                app:layout_constraintLeft_toRightOf="@id/txt_distanceTotale"
+                app:layout_constraintRight_toRightOf="@id/bloc_objectif"
+                app:layout_constraintBottom_toTopOf="@id/progressBar_cyclisme"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar_cyclisme"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="0"
+                android:startColor="@android:color/holo_blue_dark"
+                app:layout_constraintLeft_toLeftOf="@id/bloc_objectif"
+                app:layout_constraintRight_toRightOf="@id/bloc_objectif"
+                app:layout_constraintTop_toBottomOf="@id/txt_dureeTotale"
+                app:layout_constraintBottom_toTopOf="@id/progressBar_running"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar_running"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="50"
+                android:progress="0"
+                android:startColor="@android:color/holo_blue_dark"
+                app:layout_constraintLeft_toLeftOf="@id/bloc_objectif"
+                app:layout_constraintRight_toRightOf="@id/bloc_objectif"
+                app:layout_constraintTop_toBottomOf="@id/progressBar_cyclisme"
+                app:layout_constraintBottom_toBottomOf="@id/bloc_objectif"
+                android:layout_marginTop="8dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_switch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Changer de sport : "
+            android:gravity="right"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bloc_objectif"
+            app:layout_constraintRight_toLeftOf="@+id/switch_sport"
+            app:layout_constraintBottom_toTopOf="@id/webView_graphDistance"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_sport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bloc_objectif"
+            app:layout_constraintLeft_toRightOf="@id/txt_switch"
+            app:layout_constraintBottom_toTopOf="@id/webView_graphDistance"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+        <TextView
+            android:id="@+id/txt_sport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cyclisme"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_sport"
+            app:layout_constraintBottom_toTopOf="@id/webView_graphDistance"/>
+
+        <WebView
+            android:id="@+id/webView_graphDistance"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_sport"
+            app:layout_constraintBottom_toTopOf="@id/webView_graphDistanceCumul"/>
+
+        <WebView
+            android:id="@+id/webView_graphDistanceCumul"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webView_graphDistance"
+            app:layout_constraintBottom_toTopOf="@id/webView_graphSaison"/>
+
+        <WebView
+            android:id="@+id/webView_graphSaison"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webView_graphDistanceCumul"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
