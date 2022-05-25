@@ -29,12 +29,25 @@ data class Record(
     fun getAthleteTimeFormat(position: Int) : String{
         val time: Int = getAthleteTime(position).temps.toInt()
         return if(time != 0){
-            var min = (time/60).toString()
-            if(min.toInt() < 10){ min = "0" + min }
-            var sec = (time%60).toString()
-            if(sec.toInt() < 10){ sec = "0" + sec }
+            if(position == 0){
+                var min = (time/60).toString()
+                if(min.toInt() < 10){ min = "0" + min }
+                var sec = (time%60).toString()
+                if(sec.toInt() < 10){ sec = "0" + sec }
 
-            min + ":" + sec
+                min + ":" + sec
+            }
+            else{
+                val leaderTime = getAthleteTime(0).getTime()
+                var diff = time - leaderTime
+
+                var min = (diff/60).toString()
+                if(min.toInt() < 10){ min = "0" + min }
+                var sec = (diff%60).toString()
+                if(sec.toInt() < 10){ sec = "0" + sec }
+
+                "+ " + min + ":" + sec
+            }
         } else{
             "-"
         }

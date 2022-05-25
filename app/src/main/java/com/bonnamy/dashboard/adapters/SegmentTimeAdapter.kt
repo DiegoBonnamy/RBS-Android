@@ -41,11 +41,23 @@ class SegmentTimeAdapter(private var segmentTimeList: MutableList<SegmentTime>) 
 
         // Temps de l'athlete
         if(segmentTimeList[position].time != 1000){
-            var min = (segmentTimeList[position].time/60).toString()
-            if(min.toInt() < 10){ min = "0" + min }
-            var sec = (segmentTimeList[position].time%60).toString()
-            if(sec.toInt() < 10){ sec = "0" + sec }
-            holder.txtAthleteTime.text =  min + ":" + sec
+            if (position == 0){
+                var min = (segmentTimeList[position].time/60).toString()
+                if(min.toInt() < 10){ min = "0" + min }
+                var sec = (segmentTimeList[position].time%60).toString()
+                if(sec.toInt() < 10){ sec = "0" + sec }
+                holder.txtAthleteTime.text =  min + ":" + sec
+            }
+            else{
+                val leaderTime = segmentTimeList[0].time
+                val diff = segmentTimeList[position].time - leaderTime
+
+                var min = (diff/60).toString()
+                if(min.toInt() < 10){ min = "0" + min }
+                var sec = (diff%60).toString()
+                if(sec.toInt() < 10){ sec = "0" + sec }
+                holder.txtAthleteTime.text =  "+ " + min + ":" + sec
+            }
         }
         else{
             holder.txtAthleteTime.text =  "-"
