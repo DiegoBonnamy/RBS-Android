@@ -22,6 +22,9 @@ interface WSInterface {
     suspend fun getAthlete(
         @Query("a") param1: Int): Athlete
 
+    @GET("api/athlete/")
+    suspend fun getAthletes(): List<Athlete>
+
     @GET("api/athlete/color/")
     suspend fun setColor(
         @Query("a") a: Int,

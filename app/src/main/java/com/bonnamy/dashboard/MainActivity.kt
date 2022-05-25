@@ -191,27 +191,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
-            R.id.action_profil1 -> {
-                val intent = Intent(this, ProfilActivity::class.java)
-                intent.putExtra(ProfilActivity.EXTRA_ATHLETE_ID, 1)
-                startActivity(intent)
-                true
-            }
-            R.id.action_profil2 -> {
-                val intent = Intent(this, ProfilActivity::class.java)
-                intent.putExtra(ProfilActivity.EXTRA_ATHLETE_ID, 2)
-                startActivity(intent)
-                true
-            }
-            R.id.action_profil3 -> {
-                val intent = Intent(this, ProfilActivity::class.java)
-                intent.putExtra(ProfilActivity.EXTRA_ATHLETE_ID, 3)
-                startActivity(intent)
-                true
-            }
-            R.id.action_profil4 -> {
-                val intent = Intent(this, ProfilActivity::class.java)
-                intent.putExtra(ProfilActivity.EXTRA_ATHLETE_ID, 4)
+            R.id.action_athletes -> {
+                val intent = Intent(this, AthletesListActivity::class.java)
                 startActivity(intent)
                 true
             }
