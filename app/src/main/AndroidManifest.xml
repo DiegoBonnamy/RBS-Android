@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dashboard">
         <activity
+            android:name=".RecordsListActivity"
+            android:exported="false" />
+        <activity
             android:name=".SegmentDetailsActivity"
             android:exported="false" />
         <activity

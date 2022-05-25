@@ -10,3 +10,12 @@ data class AthleteTime(
     val photo: String,
     var temps: String
 ) : Parcelable
+{
+    fun getTime(): Int{
+        return if(this.temps.toInt() != 0){
+            this.temps.toInt()
+        } else{
+            100_00
+        }
+    }
+}

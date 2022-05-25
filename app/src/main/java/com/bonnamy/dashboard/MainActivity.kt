@@ -171,6 +171,11 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         return when (item.itemId) {
+            R.id.action_records -> {
+                val intent = Intent(this, RecordsListActivity::class.java)
+                startActivity(intent)
+                true
+            }
             R.id.action_segments -> {
                 val intent = Intent(this, SegmentsMenuActivity::class.java)
                 startActivity(intent)

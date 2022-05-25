@@ -42,4 +42,7 @@ interface WSInterface {
 
     @GET("api/segments/sprints/")
     suspend fun getSegmentsSprints(): Array<Segment>
+
+    @GET("api/records/")
+    suspend fun getRecords(): List<Record>
 }
