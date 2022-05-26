@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="athlete"
+            type="com.bonnamy.dashboard.bo.Athlete" />
+        <variable
+            name="viewModel"
+            type="com.bonnamy.dashboard.viewmodels.AthletesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        binding:backgroundColor="@{athlete.couleur}"
+        android:onClick="@{() -> viewModel.clicAthlete(athlete, context)}">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_athleteItemImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:elevation="12dp"
+            app:cardCornerRadius="40dp"
+            android:layout_centerHorizontal="true"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/guideline_athlete"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:id="@+id/img_athleteItemImg"
+                android:layout_height="80dp"
+                android:layout_width="match_parent"
+                binding:urlImageAthlete="@{athlete.photo}"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+            </ImageView>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_athlete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40"/>
+
+        <TextView
+            android:id="@+id/txt_athleteItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{athlete.prenom}"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/guideline_athlete"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txt_athleteItemDistance"/>
+
+        <TextView
+            android:id="@+id/txt_athleteItemDuree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{athlete.getDuree()}"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/txt_athleteItemName"
+            app:layout_constraintLeft_toRightOf="@id/guideline_athlete"
+            app:layout_constraintRight_toLeftOf="@id/txt_athleteItemDistance"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/txt_athleteItemDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{athlete.getDistance()}"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/txt_athleteItemName"
+            app:layout_constraintLeft_toRightOf="@id/txt_athleteItemDuree"
+            app:layout_constraintRight_toLeftOf="@id/txt_athleteItemDenivele"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/txt_athleteItemDenivele"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{athlete.getDenivele()}"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/txt_athleteItemName"
+            app:layout_constraintLeft_toRightOf="@id/txt_athleteItemDistance"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
