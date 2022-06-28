@@ -30,9 +30,9 @@ class ProfilActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_ATHLETE_ID = "athleteId"
-        const val URL_GRAPH_DISTANCE = "https://rbs.diegobonnamy.fr/webview/graphComparaisonDistance"
-        const val URL_GRAPH_DISTANCE_CUMUL = "https://rbs.diegobonnamy.fr/webview/graphComparaisonDistanceCumul"
-        const val URL_GRAPH_SAISON = "https://rbs.diegobonnamy.fr/webview/graphSaisons"
+        const val URL_GRAPH_DISTANCE = "https://team85.diegobonnamy.fr/webview/graphComparaisonDistance"
+        const val URL_GRAPH_DISTANCE_CUMUL = "https://team85.diegobonnamy.fr/webview/graphComparaisonDistanceCumul"
+        const val URL_GRAPH_SAISON = "https://team85.diegobonnamy.fr/webview/graphSaisons"
     }
 
     private var athleteId = 1

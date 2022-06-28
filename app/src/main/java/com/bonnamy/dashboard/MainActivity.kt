@@ -29,7 +29,7 @@ import kotlin.math.round
 class MainActivity : AppCompatActivity() {
 
     companion object{
-        const val URL_GRAPH_FORME = "https://rbs.diegobonnamy.fr/webview/graphForme"
+        const val URL_GRAPH_FORME = "https://team85.diegobonnamy.fr/webview/graphForme"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
