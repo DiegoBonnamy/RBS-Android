@@ -32,7 +32,7 @@ class EventsAdapter(private var listeEvents: MutableList<Event>) :
     // Rempli la liste
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         holder.txtEventName.text = listeEvents[position].nom
-        holder.txtEventDate.text = listeEvents[position].date_1 + listeEvents[position].date_2
+        holder.txtEventDate.text = listeEvents[position].date_1 + " " + listeEvents[position].date_2
 
         var dateDiff = listeEvents[position].dateDiff
         var eventClose = false
