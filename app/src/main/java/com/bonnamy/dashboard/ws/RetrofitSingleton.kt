@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitSingleton {
 
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("https://rbs.diegobonnamy.fr/")
+        .baseUrl("https://team85.diegobonnamy.fr/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }

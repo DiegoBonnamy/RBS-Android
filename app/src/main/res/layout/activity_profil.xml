@@ -124,7 +124,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bloc_objectif"
             app:layout_constraintRight_toLeftOf="@+id/switch_sport"
-            app:layout_constraintBottom_toTopOf="@id/webView_graphDistance"/>
+            app:layout_constraintBottom_toTopOf="@id/txt_sport"/>
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switch_sport"
@@ -133,7 +133,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bloc_objectif"
             app:layout_constraintLeft_toRightOf="@id/txt_switch"
-            app:layout_constraintBottom_toTopOf="@id/webView_graphDistance"
+            app:layout_constraintBottom_toTopOf="@id/txt_sport"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"/>
 
@@ -149,15 +149,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/switch_sport"
-            app:layout_constraintBottom_toTopOf="@id/webView_graphDistance"/>
-
-        <WebView
-            android:id="@+id/webView_graphDistance"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_sport"
             app:layout_constraintBottom_toTopOf="@id/webView_graphDistanceCumul"/>
 
         <WebView
@@ -166,7 +157,16 @@
             android:layout_height="200dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/webView_graphDistance"
+            app:layout_constraintTop_toBottomOf="@id/txt_sport"
+            app:layout_constraintBottom_toTopOf="@id/webView_graphDistance"/>
+
+        <WebView
+            android:id="@+id/webView_graphDistance"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webView_graphDistanceCumul"
             app:layout_constraintBottom_toTopOf="@id/webView_graphSaison"/>
 
         <WebView
@@ -175,7 +175,16 @@
             android:layout_height="200dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/webView_graphDistanceCumul"
+            app:layout_constraintTop_toBottomOf="@id/webView_graphDistance"
+            app:layout_constraintBottom_toTopOf="@id/webView_graphEntrainement"/>
+
+        <WebView
+            android:id="@+id/webView_graphEntrainement"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webView_graphSaison"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

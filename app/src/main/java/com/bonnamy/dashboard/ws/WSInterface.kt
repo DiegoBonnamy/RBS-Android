@@ -18,6 +18,9 @@ interface WSInterface {
     @GET("api/events/")
     suspend fun getEvents(): Array<Event>
 
+    @GET("api/nextevents/")
+    suspend fun getNextEvents(): Array<Event>
+
     @GET("api/athlete/")
     suspend fun getAthlete(
         @Query("a") param1: Int): Athlete

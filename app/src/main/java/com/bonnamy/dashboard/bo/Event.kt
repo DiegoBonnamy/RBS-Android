@@ -7,6 +7,8 @@ data class Event(
     val date_2: String,
     val lien: String,
     val sport: String,
+    val type: String,
     val acces: String,
-    val dateDiff: String
+    val dateDiff: String,
+    val affiche: String
 )

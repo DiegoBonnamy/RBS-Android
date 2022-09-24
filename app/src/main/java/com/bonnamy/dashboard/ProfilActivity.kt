@@ -33,6 +33,7 @@ class ProfilActivity : AppCompatActivity() {
         const val URL_GRAPH_DISTANCE = "https://team85.diegobonnamy.fr/webview/graphComparaisonDistance"
         const val URL_GRAPH_DISTANCE_CUMUL = "https://team85.diegobonnamy.fr/webview/graphComparaisonDistanceCumul"
         const val URL_GRAPH_SAISON = "https://team85.diegobonnamy.fr/webview/graphSaisons"
+        const val URL_GRAPH_ENTRAINEMENT = "https://team85.diegobonnamy.fr/webview/graphEntrainement"
     }
 
     private var athleteId = 1
@@ -120,19 +121,6 @@ class ProfilActivity : AppCompatActivity() {
 
     fun loadWebView(athleteId: Int, sport: String){
 
-        // Graph Distance
-        val webViewGraphDistance: WebView = findViewById(R.id.webView_graphDistance)
-        webViewGraphDistance.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String): Boolean {
-                view?.loadUrl(url)
-                return true
-            }
-        }
-        webViewGraphDistance.getSettings().setLoadWithOverviewMode(true);
-        webViewGraphDistance.getSettings().setUseWideViewPort(true)
-        webViewGraphDistance.getSettings().setJavaScriptEnabled(true)
-        webViewGraphDistance.loadUrl(URL_GRAPH_DISTANCE + "?a=" + athleteId + "&s=" + sport)
-
         // Graph Cumul
         val webView_graphDistanceCumul: WebView = findViewById(R.id.webView_graphDistanceCumul)
         webView_graphDistanceCumul.webViewClient = object : WebViewClient() {
@@ -146,6 +134,19 @@ class ProfilActivity : AppCompatActivity() {
         webView_graphDistanceCumul.getSettings().setJavaScriptEnabled(true)
         webView_graphDistanceCumul.loadUrl(URL_GRAPH_DISTANCE_CUMUL + "?a=" + athleteId + "&s=" + sport)
 
+        // Graph Distance
+        val webViewGraphDistance: WebView = findViewById(R.id.webView_graphDistance)
+        webViewGraphDistance.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
+        webViewGraphDistance.getSettings().setLoadWithOverviewMode(true);
+        webViewGraphDistance.getSettings().setUseWideViewPort(true)
+        webViewGraphDistance.getSettings().setJavaScriptEnabled(true)
+        webViewGraphDistance.loadUrl(URL_GRAPH_DISTANCE + "?a=" + athleteId + "&s=" + sport)
+
         // Graph Saisons
         val webView_graphSaison: WebView = findViewById(R.id.webView_graphSaison)
         webView_graphSaison.webViewClient = object : WebViewClient() {
@@ -158,6 +159,19 @@ class ProfilActivity : AppCompatActivity() {
         webView_graphSaison.getSettings().setUseWideViewPort(true)
         webView_graphSaison.getSettings().setJavaScriptEnabled(true)
         webView_graphSaison.loadUrl(URL_GRAPH_SAISON + "?a=" + athleteId + "&s=" + sport)
+
+        // Graph Entrainement
+        val webView_graphEntrainement: WebView = findViewById(R.id.webView_graphEntrainement)
+        webView_graphSaison.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
+        webView_graphEntrainement.getSettings().setLoadWithOverviewMode(true);
+        webView_graphEntrainement.getSettings().setUseWideViewPort(true)
+        webView_graphEntrainement.getSettings().setJavaScriptEnabled(true)
+        webView_graphEntrainement.loadUrl(URL_GRAPH_ENTRAINEMENT + "?a=" + athleteId + "&s=" + sport)
     }
 
     override fun onResume() {

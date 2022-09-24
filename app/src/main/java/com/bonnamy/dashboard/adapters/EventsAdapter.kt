@@ -3,14 +3,19 @@ package com.bonnamy.dashboard.adapters
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bonnamy.dashboard.R
 import com.bonnamy.dashboard.bo.Event
+import com.squareup.picasso.Picasso
 import java.lang.Math.abs
 
 class EventsAdapter(private var listeEvents: MutableList<Event>) :
@@ -27,7 +32,7 @@ class EventsAdapter(private var listeEvents: MutableList<Event>) :
     // Rempli la liste
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         holder.txtEventName.text = listeEvents[position].nom
-        holder.txtEventDate.text = listeEvents[position].date_1 + "\n" + listeEvents[position].date_2
+        holder.txtEventDate.text = listeEvents[position].date_1 + listeEvents[position].date_2
 
         var dateDiff = listeEvents[position].dateDiff
         var eventClose = false
@@ -40,14 +45,25 @@ class EventsAdapter(private var listeEvents: MutableList<Event>) :
         }
         holder.txtEventDateDiff.text = "J " + dateDiff
 
+        Handler(Looper.getMainLooper()).post(Runnable {
+            Picasso.get()
+                .load(listeEvents[position].affiche)
+                .into(holder.imgEvent)
+        })
+
         if(eventClose){
-            holder.txtEventDate.setBackgroundColor(Color.parseColor("#5c5c5c"))
+            holder.layoutEvent.setBackgroundColor(Color.parseColor("#5c5c5c"))
         }
         else {
             if (listeEvents[position].sport == "Cyclisme") {
-                holder.txtEventDate.setBackgroundColor(Color.parseColor("#036bfc"))
+                if(listeEvents[position].type == "Cyclosportive"){
+                    holder.layoutEvent.setBackgroundColor(Color.parseColor("#006BFF"))
+                }
+                else{
+                    holder.layoutEvent.setBackgroundColor(Color.parseColor("#FFC800"))
+                }
             } else {
-                holder.txtEventDate.setBackgroundColor(Color.parseColor("#fc0303"))
+                holder.layoutEvent.setBackgroundColor(Color.parseColor("#E00000"))
             }
         }
     }
@@ -58,9 +74,11 @@ class EventsAdapter(private var listeEvents: MutableList<Event>) :
 
     // View Holder
     inner class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val layoutEvent: ConstraintLayout = itemView.findViewById(R.id.layout_event)
         val txtEventDate: TextView = itemView.findViewById(R.id.txt_eventDate)
         val txtEventName: TextView = itemView.findViewById(R.id.txt_eventName)
         val txtEventDateDiff: TextView = itemView.findViewById(R.id.txt_eventDateDiff)
+        val imgEvent: ImageView = itemView.findViewById(R.id.img_event)
 
         init {
             itemView.setOnClickListener{

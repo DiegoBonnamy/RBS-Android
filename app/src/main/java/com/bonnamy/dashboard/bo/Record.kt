@@ -30,12 +30,24 @@ data class Record(
         val time: Int = getAthleteTime(position).temps.toInt()
         return if(time != 0){
             if(position == 0){
-                var min = (time/60).toString()
-                if(min.toInt() < 10){ min = "0" + min }
-                var sec = (time%60).toString()
-                if(sec.toInt() < 10){ sec = "0" + sec }
+                if(time < 3600){
+                    var min = (time/60).toString()
+                    if(min.toInt() < 10){ min = "0" + min }
+                    var sec = (time%60).toString()
+                    if(sec.toInt() < 10){ sec = "0" + sec }
 
-                min + ":" + sec
+                    min + ":" + sec
+                }
+                else{
+                    var h = (time/60/60).toString()
+                    if(h.toInt() < 10){ h = "0" + h }
+                    var min = ((time/60)-(time/60/60)*60).toString()
+                    if(min.toInt() < 10){ min = "0" + min }
+                    var sec = (time%60).toString()
+                    if(sec.toInt() < 10){ sec = "0" + sec }
+
+                    h+ ":" + min + ":" + sec
+                }
             }
             else{
                 val leaderTime = getAthleteTime(0).getTime()
