@@ -42,6 +42,9 @@ class SegmentsAdapter(private var segmentsList: MutableList<Segment>) :
         // Nom du segment
         holder.txtSegmentName.text = segmentsList[position].nom
 
+        holder.txtSegmentDistance.text = segmentsList[position].distance + " m"
+        holder.txtSegmentPente.text = segmentsList[position].pente + " %"
+
         // Catégorie du segment
         if(segmentsList[position].type == "Ascension"){
             val cat = when(round(segmentsList[position].distance.toInt() * segmentsList[position].pente.toDouble()).toInt()){
@@ -98,6 +101,7 @@ class SegmentsAdapter(private var segmentsList: MutableList<Segment>) :
         var sec = (segmentsList[position].leader.temps.toInt()%60).toString()
         if(sec.toInt() < 10){ sec = "0" + sec }
         holder.txtLeaderTime.text =  min + ":" + sec
+        holder.txtLeaderSpeed.text = (segmentsList[position].distance.toInt()/segmentsList[position].leader.temps.toInt()*3.6).toString() + " km/h"
     }
 
     // Count de la list
@@ -108,9 +112,12 @@ class SegmentsAdapter(private var segmentsList: MutableList<Segment>) :
     // View Holder
     inner class SegmentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val txtSegmentName: TextView = itemView.findViewById(R.id.txt_segmentName)
+        val txtSegmentDistance: TextView = itemView.findViewById(R.id.txt_segmentDistance)
+        val txtSegmentPente: TextView = itemView.findViewById(R.id.txt_segmentPente)
         val txtSegmentCat: TextView = itemView.findViewById(R.id.txt_segmentCat)
         val imgLeader: ImageView = itemView.findViewById(R.id.img_leader)
         val txtLeaderTime: TextView = itemView.findViewById(R.id.txt_leaderTime)
+        val txtLeaderSpeed: TextView = itemView.findViewById(R.id.txt_leaderSpeed)
         val imgCat: ImageView = itemView.findViewById(R.id.img_iconCat)
 
         init {

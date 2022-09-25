@@ -2,93 +2,121 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/layout_border"
+    android:layout_margin="8dp"
+    android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:id="@+id/layout_segment"
-        android:layout_width="120dp"
+    <TextView
+        android:id="@+id/txt_segmentName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:padding="8dp"
-        android:background="@drawable/layout_border"
+        android:textColor="@color/black"
+        android:text="Nom du segment"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/txt_segmentDistance"/>
+
+    <TextView
+        android:id="@+id/txt_segmentDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 m"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_segmentName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/txt_segmentPente"
+        app:layout_constraintBottom_toTopOf="@id/layout_cat"/>
+
+    <TextView
+        android:id="@+id/txt_segmentPente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 %"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_segmentName"
+        app:layout_constraintLeft_toRightOf="@id/txt_segmentDistance"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layout_cat"/>
+
+    <RelativeLayout
+        android:id="@+id/layout_cat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_segmentDistance"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/segmentGuidline"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <ImageView
+            android:id="@+id/img_iconCat"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop" />
+
         <TextView
-            android:id="@+id/txt_segmentName"
+            android:id="@+id/txt_segmentCat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:gravity="center"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/black"
-            android:text="Nom du segment"/>
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-        <RelativeLayout
-            android:id="@+id/layout_cat"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp">
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/img_iconCat"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_centerInParent="true"
-                android:scaleType="centerCrop" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/segmentGuidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.40"/>
 
-            <TextView
-                android:id="@+id/txt_segmentCat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="@color/white"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/img_leader"
+        android:layout_height="30dp"
+        android:layout_width="30dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toBottomOf="@id/txt_segmentDistance"
+        app:layout_constraintLeft_toRightOf="@id/segmentGuidline"
+        app:layout_constraintRight_toLeftOf="@id/txt_leaderTime"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        </RelativeLayout>
+    <TextView
+        android:id="@+id/txt_leaderTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="00:00"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/txt_segmentDistance"
+        app:layout_constraintLeft_toRightOf="@id/img_leader"
+        app:layout_constraintRight_toLeftOf="@id/txt_leaderSpeed"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_leader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <ImageView
-                android:id="@+id/img_leader"
-                android:layout_height="30dp"
-                android:layout_width="30dp"
-                android:src="@drawable/ic_launcher_background"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                app:layout_constraintTop_toTopOf="@id/layout_leader"
-                app:layout_constraintLeft_toLeftOf="@id/layout_leader"
-                app:layout_constraintRight_toLeftOf="@id/txt_leaderTime"
-                app:layout_constraintBottom_toBottomOf="@id/layout_leader">
-            </ImageView>
-
-            <TextView
-                android:id="@+id/txt_leaderTime"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:gravity="center"
-                android:text="00:00"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@id/layout_leader"
-                app:layout_constraintLeft_toRightOf="@id/img_leader"
-                app:layout_constraintRight_toRightOf="@id/layout_leader"
-                app:layout_constraintTop_toTopOf="@id/layout_leader"
-                app:layout_constraintVertical_bias="0.0" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/txt_leaderSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0 km/h"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/txt_segmentDistance"
+        app:layout_constraintLeft_toRightOf="@id/txt_leaderTime"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

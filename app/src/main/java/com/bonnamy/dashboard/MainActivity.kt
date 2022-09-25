@@ -153,7 +153,7 @@ class MainActivity : AppCompatActivity() {
                         textViewMedal.setBackgroundColor(Color.parseColor(medals.couleur))
 
                         // Margin top
-                        val marginTop = round(250 - (medals.pts.toFloat() / max) * 250)
+                        val marginTop = round(300 - (medals.pts.toFloat() / max) * 300)
                         val param = textViewMedal.layoutParams as ViewGroup.MarginLayoutParams
                         param.setMargins(0, marginTop.toInt(), 0, 0)
                         textViewMedal.layoutParams = param
@@ -177,12 +177,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_segments -> {
-                val intent = Intent(this, SegmentsMenuActivity::class.java)
-                startActivity(intent)
-                true
-            }
-            R.id.action_map -> {
-                val intent = Intent(this, MapActivity::class.java)
+                val intent = Intent(this, SegmentsListActivity::class.java)
                 startActivity(intent)
                 true
             }

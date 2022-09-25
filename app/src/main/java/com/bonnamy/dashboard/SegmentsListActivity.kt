@@ -2,7 +2,6 @@ package com.bonnamy.dashboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bonnamy.dashboard.adapters.SegmentsAdapter
@@ -30,25 +29,20 @@ class SegmentsListActivity : AppCompatActivity() {
 
         val segmentTypeId = intent.getIntExtra(EXTRA_SEGMENT_TYPE_ID,1)
 
-        if(segmentTypeId == 1){
-            setTitle("Ascensions")
-        }
-        else{
-            setTitle("Sprints")
-        }
+        setTitle("Segments")
 
         this.segmentsRecyclerView = findViewById(R.id.bloc_segmentsList)
         segmentsRecyclerView.setHasFixedSize(true)
-        segmentsRecyclerView.layoutManager = GridLayoutManager(this, 2)
+        segmentsRecyclerView.layoutManager = LinearLayoutManager(this)
 
         val service = RetrofitSingleton.retrofit.create(WSInterface::class.java)
         if(ReseauHelper.estConnecte(this)){
             CoroutineScope(Dispatchers.IO).launch {
-                val segments: Array<Segment> = if(segmentTypeId == 1){
-                    service.getSegmentsAscensions()
-                } else{
-                    service.getSegmentsSprints()
-                }
+                val segments: MutableList<Segment> = service.getSegmentsAscensions().toMutableList()
+                segments.addAll(service.getSegmentsSprints().toMutableList())
+
+                // Tri
+                segments.sortByDescending  { it.distance.toInt() * it.pente.toDouble() }
 
                 withContext(Dispatchers.Main) {
 
@@ -60,7 +54,7 @@ class SegmentsListActivity : AppCompatActivity() {
                         if(s.temps4.temps == null){ s.temps4.temps = "1000" }
                     }
 
-                    val segmentsAdapter = SegmentsAdapter(segments.toMutableList())
+                    val segmentsAdapter = SegmentsAdapter(segments)
                     segmentsRecyclerView.adapter = segmentsAdapter
                 }
             }

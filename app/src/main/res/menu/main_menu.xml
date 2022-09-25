@@ -20,12 +20,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_map"
-        android:title="Map"
-        android:icon="@android:drawable/ic_menu_mapmode"
-        app:showAsAction="never"/>
-
-    <item
         android:id="@+id/action_records"
         android:title="Records"
         android:icon="@android:drawable/ic_menu_mylocation"
