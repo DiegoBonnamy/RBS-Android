@@ -20,6 +20,7 @@ import android.widget.RelativeLayout
 import androidx.core.view.marginTop
 import com.bonnamy.dashboard.SegmentDetailsActivity
 import com.bonnamy.dashboard.SettingsActivity
+import kotlin.math.roundToInt
 
 
 class SegmentsAdapter(private var segmentsList: MutableList<Segment>) :
@@ -101,7 +102,7 @@ class SegmentsAdapter(private var segmentsList: MutableList<Segment>) :
         var sec = (segmentsList[position].leader.temps.toInt()%60).toString()
         if(sec.toInt() < 10){ sec = "0" + sec }
         holder.txtLeaderTime.text =  min + ":" + sec
-        holder.txtLeaderSpeed.text = (segmentsList[position].distance.toInt()/segmentsList[position].leader.temps.toInt()*3.6).toString() + " km/h"
+        holder.txtLeaderSpeed.text = (((segmentsList[position].distance.toDouble() / segmentsList[position].leader.temps.toDouble() * 3.6) * 10.0).roundToInt() / 10.0).toString() + " km/h"
     }
 
     // Count de la list
