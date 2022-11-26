@@ -1,6 +1,7 @@
 package com.bonnamy.dashboard.bo
 
 import android.os.Parcelable
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bonnamy.dashboard.R
@@ -41,6 +42,11 @@ data class AthletePosition(
     fun detailsSemaineFormat(sport: Int): String {
         val details = details_semaine.split(";")
         return details[sport - 1] + " km"
+    }
+
+    fun detailsSemaineVisibility(sport: Int): Int {
+        val details = details_semaine.split(";")
+        return if(details[sport - 1].toFloat() > 0) View.VISIBLE else View.GONE
     }
 
     fun gainGeneralFormat() = if(gain_general.toInt() > 1) "+ $gain_general pts" else "+ $gain_general pt"
