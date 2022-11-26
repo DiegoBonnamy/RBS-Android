@@ -28,9 +28,9 @@ class AthletesListActivity : AppCompatActivity() {
         val athleteAdapter = AthleteAdapter(athletesViewModel)
         activityAthletesListBinding.blocAthletesList.adapter = athleteAdapter
 
-        athletesViewModel.liveDataAthletesList.observe(this, {
+        athletesViewModel.liveDataAthletesList.observe(this) {
             athleteAdapter.submitList(it)
-        })
+        }
 
         athletesViewModel.loadAthletes(this)
     }

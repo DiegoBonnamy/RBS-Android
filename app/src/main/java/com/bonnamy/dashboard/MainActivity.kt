@@ -112,9 +112,9 @@ class MainActivity : AppCompatActivity() {
                     return true
                 }
             }
-            webViewGraphEfforts.getSettings().setLoadWithOverviewMode(true);
-            webViewGraphEfforts.getSettings().setUseWideViewPort(true)
-            webViewGraphEfforts.getSettings().setJavaScriptEnabled(true)
+            webViewGraphEfforts.settings.loadWithOverviewMode = true;
+            webViewGraphEfforts.settings.useWideViewPort = true
+            webViewGraphEfforts.settings.javaScriptEnabled = true
             webViewGraphEfforts.loadUrl(URL_GRAPH_FORME)
         }
 
@@ -171,6 +171,11 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         return when (item.itemId) {
+            R.id.action_clsmt -> {
+                val intent = Intent(this, ClassementActivity::class.java)
+                startActivity(intent)
+                true
+            }
             R.id.action_records -> {
                 val intent = Intent(this, RecordsListActivity::class.java)
                 startActivity(intent)

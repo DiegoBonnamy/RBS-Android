@@ -51,4 +51,7 @@ interface WSInterface {
 
     @GET("api/records/")
     suspend fun getRecords(): List<Record>
+
+    @GET("api/classement/")
+    suspend fun getClassement(): List<Classement>
 }

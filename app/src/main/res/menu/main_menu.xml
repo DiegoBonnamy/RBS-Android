@@ -4,25 +4,30 @@
 
     <item
         android:id="@+id/action_athletes"
-        android:title="Athlètes"
+        android:title="@string/athl_tes"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/action_calendrier"
-        android:title="Calendrier"
+        android:title="@string/calendrier"
         android:icon="@android:drawable/ic_menu_my_calendar"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/action_segments"
-        android:title="Segments"
+        android:title="@string/segments"
         android:icon="@android:drawable/ic_menu_view"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_records"
-        android:title="Records"
+        android:title="@string/records"
         android:icon="@android:drawable/ic_menu_mylocation"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_clsmt"
+        android:title="@string/classements"
         app:showAsAction="never" />
 
 </menu>
