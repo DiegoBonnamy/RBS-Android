@@ -45,11 +45,13 @@ class EventsAdapter(private var listeEvents: MutableList<Event>) :
         }
         holder.txtEventDateDiff.text = "J " + dateDiff
 
-        Handler(Looper.getMainLooper()).post(Runnable {
-            Picasso.get()
-                .load(listeEvents[position].affiche)
-                .into(holder.imgEvent)
-        })
+        if(listeEvents[position].affiche.isNotEmpty()) {
+            Handler(Looper.getMainLooper()).post(Runnable {
+                Picasso.get()
+                    .load(listeEvents[position].affiche)
+                    .into(holder.imgEvent)
+            })
+        }
 
         if(eventClose){
             holder.layoutEvent.setBackgroundColor(Color.parseColor("#5c5c5c"))

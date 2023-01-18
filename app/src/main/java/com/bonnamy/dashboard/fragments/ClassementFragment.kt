@@ -1,7 +1,6 @@
 package com.bonnamy.dashboard.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,11 +40,9 @@ class ClassementFragment : Fragment() {
         clsmtViewModel = ViewModelProvider(this).get(AthletePositionViewModel::class.java)
 
         val clsmtAdapter = AthletePositionAdapter()
-        Log.e("DebugRV", "ok")
         fragmentClassementBinding.classementRecyclerView.adapter = clsmtAdapter
 
         clsmtViewModel.positionData.observe(viewLifecycleOwner) {
-            Log.e("DebugRV", it.size.toString())
             clsmtAdapter.submitList(it)
         }
         clsmtViewModel.loadPositions(clsmt)
